@@ -17,21 +17,23 @@ module.exports = {
           //loader执行顺序从下往上
           'style-loader',
           'css-loader',
+          // 'postcss-loader'
         ]
       },
       {
         test: /\.less$/,
-        use: ["style-loader", "css-loader", 'less-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  require('autoprefixer')
-                ]
-              }
-            }
-          }],
+        use: ["style-loader", "css-loader", 'less-loader', 'postcss-loader'
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     postcssOptions: {
+          //       plugins: [
+          //         require('autoprefixer')
+          //       ]
+          //     }
+          //   }
+          // }
+        ],
       },
 
       // {
