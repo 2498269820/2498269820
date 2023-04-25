@@ -16,13 +16,28 @@ module.exports = {
           // {loader:'css-loader',opticon:''//可传递额外的参数}//一般直接如下面写即可
           //loader执行顺序从下往上
           'style-loader',
-          'css-loader'
+          'css-loader',
         ]
       },
       {
         test: /\.less$/,
-        use: ["style-loader", "css-loader", 'less-loader'],
+        use: ["style-loader", "css-loader", 'less-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require('autoprefixer')
+                ]
+              }
+            }
+          }],
       },
+
+      // {
+      //   test: /\.(css|less)$/,  //合并写法
+      //   use: ["style-loader", "css-loader", 'less-loader'],
+      // },
 
     ]
   }
