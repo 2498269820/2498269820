@@ -35,12 +35,21 @@ module.exports = {
           // }
         ],
       },
-      // {
-      //   test: /\.(jpe?g|png|gif|svg)$/,
-      //   use: 'file-loader',
-      //   type:'javascript/auto'
-      //   // type: 'asset/resource'
-      // }, 
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        // use: 'file-loader',
+        // type:'javascript/auto'
+        // type: 'asset/resource'
+        use: {
+          loader: 'file-loader', options: {
+            // outputPath:'img'
+            name: 'img/[name]-[hash:6].[ext]',
+            esModule: false
+          }
+        },
+        type: 'javascript/auto',
+
+      },
 
       // {
       //   test: /\.(css|less)$/,  //合并写法
