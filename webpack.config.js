@@ -35,6 +35,12 @@ module.exports = {
           // }
         ],
       },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/,
+      //   use: 'file-loader',
+      //   type:'javascript/auto'
+      //   // type: 'asset/resource'
+      // }, 
 
       // {
       //   test: /\.(css|less)$/,  //合并写法
