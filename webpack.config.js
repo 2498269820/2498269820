@@ -35,16 +35,29 @@ module.exports = {
           // }
         ],
       },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/,
+      //   // use: 'file-loader',
+      //   // type:'javascript/auto'
+      //   // type: 'asset/resource'
+      //   use: {
+      //     loader: 'file-loader', options: {
+      //       // outputPath:'img'
+      //       name: 'img/[name]-[hash:6].[ext]',
+      //       esModule: false
+      //     }
+      //   },
+      //   type: 'javascript/auto',
+
+      // },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        // use: 'file-loader',
-        // type:'javascript/auto'
-        // type: 'asset/resource'
         use: {
-          loader: 'file-loader', options: {
+          loader: 'url-loader', options: {
             // outputPath:'img'
             name: 'img/[name]-[hash:6].[ext]',
             esModule: false
+            , limit: 1024 * 100
           }
         },
         type: 'javascript/auto',
