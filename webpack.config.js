@@ -1,4 +1,5 @@
 const path = require("path");//node模块的函数
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");//node模块的函数
 
 module.exports = {
   entry: "./src/js/index.js", //设置入口
@@ -6,7 +7,6 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"), //node模块的函数path.resolve
     filename: "bundle.js",//设置打包后的文件名
   },
-
   module: {
     rules: [
       {
@@ -20,7 +20,7 @@ module.exports = {
           // 'postcss-loader'
         ]
       },
-       // {
+      // {
       //   test: /\.(css|less)$/,  //合并写法
       //   use: ["style-loader", "css-loader", 'less-loader'],
       // },
@@ -68,13 +68,13 @@ module.exports = {
       // },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        type:'asset',
+        type: 'asset',
         generator: {
-            filename: 'img/[name]-[hash:6][ext]',
+          filename: 'img/[name]-[hash:6][ext]',
         },
         parser: {
-          dataUrlCondition:{
-          maxSize: 1024 * 100
+          dataUrlCondition: {
+            maxSize: 1024 * 100
           }
         }
       },
@@ -89,14 +89,12 @@ module.exports = {
       // },
       {
         test: /\.(eot|ttf|woff2?)$/,
-        type:'asset/resource',
+        type: 'asset/resource',
         generator: {
           filename: 'font/[name]-[hash:6][ext]',
+        },
       },
-      },
-
-     
-
     ]
-  }
+  },
+  plugins: [new CleanWebpackPlugin()],
 };
