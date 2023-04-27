@@ -2,3 +2,8 @@
     border: 1px solid #000;
     user-select: none;
 }
+
+i{
+    width: 20px;
+    height: 20px;
+}

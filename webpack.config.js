@@ -20,6 +20,10 @@ module.exports = {
           // 'postcss-loader'
         ]
       },
+       // {
+      //   test: /\.(css|less)$/,  //合并写法
+      //   use: ["style-loader", "css-loader", 'less-loader'],
+      // },
       {
         test: /\.less$/,
         use: ["style-loader", "css-loader", 'less-loader', 'postcss-loader'
@@ -74,11 +78,24 @@ module.exports = {
           }
         }
       },
-
       // {
-      //   test: /\.(css|less)$/,  //合并写法
-      //   use: ["style-loader", "css-loader", 'less-loader'],
+      //   test: /\.(eot|ttf|woff2?)$/,
+      //   use: {
+      //     loader: 'file-loader', options: {
+      //       // outputPath:'img'
+      //       name: 'font/[name]-[hash:6].[ext]',
+      //     }
+      //   },
       // },
+      {
+        test: /\.(eot|ttf|woff2?)$/,
+        type:'asset/resource',
+        generator: {
+          filename: 'font/[name]-[hash:6][ext]',
+      },
+      },
+
+     
 
     ]
   }
