@@ -50,18 +50,29 @@ module.exports = {
       //   type: 'javascript/auto',
 
       // },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/,
+      //   use: {
+      //     loader: 'url-loader', options: {
+      //       // outputPath:'img'
+      //       name: 'img/[name]-[hash:6].[ext]',
+      //       esModule: false
+      //       , limit: 1024 * 100
+      //     }
+      //   },
+      //   type: 'javascript/auto',
+      // },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        use: {
-          loader: 'url-loader', options: {
-            // outputPath:'img'
-            name: 'img/[name]-[hash:6].[ext]',
-            esModule: false
-            , limit: 1024 * 100
-          }
+        type:'asset',
+        generator: {
+            filename: 'img/[name]-[hash:6][ext]',
         },
-        type: 'javascript/auto',
-
+        parser: {
+          dataUrlCondition:{
+          maxSize: 1024 * 100
+          }
+        }
       },
 
       // {
