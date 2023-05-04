@@ -1,5 +1,7 @@
 const path = require("path");//node模块的函数
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");//node模块的函数
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { DefinePlugin } = require('webpack')
 
 module.exports = {
   entry: "./src/js/index.js", //设置入口
@@ -96,5 +98,11 @@ module.exports = {
       },
     ]
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin(
+    { template: './public/index.html', title: "天灏" }
+  ),
+  new DefinePlugin({
+    BASE_URL: "'./'"
+  })
+  ],
 };
